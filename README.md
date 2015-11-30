@@ -2,7 +2,7 @@
 
 All My Hacker Rank code to date, practice space for algorithms bashing.
 
-Algorithms -> Warm Up:
+Algorithms > Warm Up:
 
 * A Very Big Sum
 * Diagonal Difference
@@ -12,7 +12,7 @@ Algorithms -> Warm Up:
 * Staircase
 * Time Conversion
 
-Algorithms -> Implementation:
+Algorithms > Implementation:
 
 * ACM ICPC Team
 * Angry Professor
@@ -31,7 +31,7 @@ Algorithms -> Implementation:
 * The Time in Words
 * Utopian Tree
 
-Algorithms -> Strings
+Algorithms > Strings
 
 * Alternating Characters
 * Funny Strings
