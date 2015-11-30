@@ -1,0 +1,21 @@
+import java.util.Hashtable;
+import java.util.Scanner;
+
+
+public class Pangrams {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Hashtable<Character, Integer> alphamap = new Hashtable<Character, Integer>();
+		String alpha = "abcdefghijklmnop";
+		for(int i=0; i<alpha.length(); i++){
+			alphamap.put(alpha.charAt(i), 0);
+		}
+		
+		Scanner in = new Scanner(System.in);
+		while(in.hasNext()){
+			in.next().toLowerCase();
+		}
+	}
+
+}

@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+
+public class FunnyString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+		int T = in.nextInt();
+		while(T > 0){
+			
+		}
+	}
+
+}

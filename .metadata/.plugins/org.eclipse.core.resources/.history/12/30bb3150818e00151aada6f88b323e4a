@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+
+public class ServiceLane {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int N = in.nextInt();
+		int T = in.nextInt();
+		
+		int[] arr = new int[N];
+		for(int i=0; i<N; i++){
+			arr[i] = in.nextInt();
+		}
+		
+		int smallest = 3;
+		while(T > 0){
+			
+			int i = in.nextInt();
+			int j = in.nextInt();
+			System.out.println(i + " " + j);)
+			
+			T--;
+		}
+	}
+
+}

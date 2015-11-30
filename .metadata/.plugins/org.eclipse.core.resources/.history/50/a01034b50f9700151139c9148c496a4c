@@ -1,0 +1,17 @@
+import java.util.Hashtable;
+import java.util.Scanner;
+
+
+public class Gemstones {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int N = in.nextInt(), T = N;
+		Hashtable<Character, Integer> hash = new Hashtable<Character, Integer>();
+		
+		while(T > 0){
+			
+		}
+	}
+
+}

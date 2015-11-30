@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+
+public class CaesarCipher {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int N = in.nextInt();
+		String word = in.next();
+		int moveBy = in.nextInt();
+		
+		for(int i=0; i<N; i++){
+			int pos = (int) word.charAt(i);
+			
+			if(pos >= 'A' && pos <= 'Z'){
+				int newPos = pos + moveBy;
+				if(((pos + moveBy - 65) % 26) > 0){
+					int extra = (pos + moveBy - 65) % 26;
+					System.out.print((char) (65 + extra));
+				}else{
+					System.out.print((char) (newPos));
+				}
+			}else if(pos >= 'a' && pos <= 'z'){
+				int newPos = pos + moveBy;
+				if(((pos + moveBy - 97) % 26) > 0){
+					int extra = (pos + moveBy - 97) % 26;
+					System.out.print((char) (97 + extra));
+				}else{
+					System.out.print((char) newPos);
+				}
+			}else{
+				//just print out
+				System.out.print(word.charAt(i));
+			}
+		}
+	}
+	
+}

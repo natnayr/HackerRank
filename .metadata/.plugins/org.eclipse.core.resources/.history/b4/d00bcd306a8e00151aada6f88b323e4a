@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+
+public class FindDigits {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		int T = in.nextInt();
+		while(T > 0){
+			
+			String inRead = in.next();
+			long fullNum = Long.parseLong(inRead);
+			int count = 0;
+			
+			
+			T--;
+		}
+	}
+
+}

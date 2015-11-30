@@ -1,0 +1,11 @@
+import java.util.Hashtable;
+
+
+public class Pangrams {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashTable<Character, Integer> alphamap = new Hashtable
+	}
+
+}

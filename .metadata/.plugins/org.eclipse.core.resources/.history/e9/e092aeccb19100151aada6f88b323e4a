@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+
+public class TheGridSearch {
+
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int R = in.nextInt();
+            int C = in.nextInt();
+            String G[] = new String[R];
+            for(int G_i=0; G_i < R; G_i++){
+                G[G_i] = in.next();
+            }
+            
+            int r = in.nextInt();
+            int c = in.nextInt();
+            String P[] = new String[r];
+            for(int P_i=0; P_i < r; P_i++){
+                P[P_i] = in.next();
+            }
+            
+            int num = r*c;
+            boolean match = false;
+            //Run through and find first line match
+            for(int G_i=0; G_i<R && match == false; G_i++){
+            	for(int G_j=0; G_j<C && match == false; G_j++){
+            		//run through of big matrix, start from check gate
+            		if(G[G_i].charAt(G_j) == P[0].charAt(0)){
+            			int checkNum = num;
+            			for(int i=0, g_i=G_i; i<r && g_i<R; i++, g_i++){
+            				for(int j=0, g_j=G_j; j<c && g_j<C; j++, g_j++){
+            					
+            					if(G[g_i].charAt(g_j) == P[i].charAt(j)){
+            						
+            					}
+            					
+            				}
+            			}
+            		}
+            	}
+            }
+            
+        }
+        
+	}
+	
+	public static boolean matcher(String[] G, String[] P, int r, int c, int G_i, int G_j){
+		int num = r*c;
+		
+		for(int i=0, g_i=G_i; i<r && g_i<G.length; i++, g_i++){
+			for(int j=0, g_j=G_j; j<r && g_j<G[i].length(); j++, g_j++){
+				if(P[i].charAt(j) == G[g_i].charAt(g_j)){
+					num--;
+				}else{
+					break;
+				}
+			}
+		}
+		if(num==0){
+			return true;
+		}
+		return true;
+	}
+	
+}

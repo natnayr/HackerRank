@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;smallest&apos; in &apos;CutTheSticks.main(...)&apos; to &apos;length&apos;&#x0D;&#x0A;- Original project: &apos;AlgorithmImplementation&apos;&#x0D;&#x0A;- Original element: &apos;CutTheSticks.main(String[]).smallest&apos;&#x0D;&#x0A;- Renamed element: &apos;smallest&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;smallest&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{CutTheSticks.java[CutTheSticks~main~\[QString;@smallest!238!257!242!249!I!0!false" name="length" references="true" stamp="1447985338311" version="1.0"/>
+</session>

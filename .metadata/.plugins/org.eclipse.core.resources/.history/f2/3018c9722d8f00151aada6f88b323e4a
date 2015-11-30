@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+
+public class CutTheSticks {
+	
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		
+		int N = in.nextInt();
+		int[] arr = new int[N];
+		
+		int[] jumpArr = new int[N];
+		int length = 1000;
+		//init jumpArr running numbers & input arr
+		for(int i=0; i<N; i++){
+			jumpArr[i] = i+1;
+			arr[i] = in.nextInt();
+			
+			if(arr[i] < length){
+				length = arr[i];
+			}
+		}
+		
+		
+		int prevIndex;
+		int smallest;
+		boolean cut;
+		
+		//walk through and start
+		while(cut){
+			for(int i=0; i<N; i++){
+				if(i==0){
+					smallest = 1000;
+					prevIndex = 0;
+					cut = false;
+				}
+				
+				if(arr[0] >= length){
+					arr[i] -= length;
+					cut = true;
+					if(i > prevIndex && ){
+						jump
+					}
+				}
+			}
+		}
+	}
+	
+}

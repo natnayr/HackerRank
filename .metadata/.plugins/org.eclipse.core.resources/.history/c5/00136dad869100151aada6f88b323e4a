@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+
+public class CaesarCipher {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		int N = in.nextInt();
+		String word = in.next();
+		int moveBy = in.nextInt();
+		
+		for(int i=0; i<N; i++){
+			char t = word.charAt(i);
+			boolean isUpper = Character.isUpperCase(t);
+			
+			if(isUpper){
+				t = Character.toLowerCase(t);
+			}
+			
+			if(t >= 'a' && t <= 'z'){
+				int newPos = t + moveBy;
+				if(((t + moveBy - 96) % 26) > 0){
+					int extra = (t + moveBy - 96) % 26;
+					System.out.print((char) (96 + extra));
+				}else{
+					System.out.print((char) newPos);
+				}
+			}else{
+				//just print out
+				System.out.print(word.charAt(i));
+			}
+		}
+	}
+	
+	public static void printOut(boolean isUpper, char t){
+		if(isUpper){
+			System.out.print((char) newPos);
+		}
+	}
+	
+}

@@ -1,0 +1,24 @@
+import java.text.DateFormat;
+import java.util.Scanner;
+
+
+public class LibraryFine {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner in = new Scanner(System.in);
+        int d1 = in.nextInt();
+        int m1 = in.nextInt();
+        int y1 = in.nextInt();
+        int d2 = in.nextInt();
+        int m2 = in.nextInt();
+        int y2 = in.nextInt();
+		
+        try{
+        //check date is valid
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        df.setLenient(false);
+        df.parse()}
+	}
+
+}

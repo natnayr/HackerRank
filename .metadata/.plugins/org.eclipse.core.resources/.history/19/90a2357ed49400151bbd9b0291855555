@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+
+public class Encryption {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String message = in.next().trim();
+		int nrow = (int) Math.floor(Math.sqrt(message.length()));
+		int ncol = (int) Math.ceil(Math.sqrt(message.length()));
+		
+		if((nrow*ncol) < message.length()){
+			nrow++;
+		}
+		
+		char[][] box = new char[nrow][ncol];
+		
+		
+	}
+
+}
