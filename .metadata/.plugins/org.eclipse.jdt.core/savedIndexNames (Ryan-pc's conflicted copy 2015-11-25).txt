@@ -1,3 +1,0 @@
-INDEX VERSION 1.127+C:\Users\Ryan\Dropbox\hackerrank workspace\.metadata\.plugins\org.eclipse.jdt.core
-320573334.index
-265233734.index
