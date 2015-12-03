@@ -14,21 +14,22 @@ public class InsertSort1 {
 		}
 		
 		int e = arr[size-1];
-		for(int i=size-1; i>=0; i--){
+		int i = size-2;
+		for(; i>=0; i--){
 			if(arr[i] > e){
 				arr[i+1] = arr[i];
-			}else if(arr[i] <= e){
-				arr[i] = e;
+			}else {
 				break;
 			}
 			print(arr);
 		}
+		arr[i+1] = e;
 		print(arr);
 	}
 	
 	public static void print(int[] arr){
 		System.out.print(arr[0]);
-		for(int i=0; i<arr.length; i++){
+		for(int i=1; i<arr.length; i++){
 			System.out.print(" " + arr[i]);
 		}
 		System.out.println();
