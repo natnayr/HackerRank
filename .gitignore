@@ -1,4 +1,6 @@
-.metadata/
 RemoteSystemsTempFiles/
 .project
+.settings
 .classpath
+.metadata
+.externalToolBuilders
