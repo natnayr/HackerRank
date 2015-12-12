@@ -4,3 +4,4 @@ RemoteSystemsTempFiles/
 .classpath
 .metadata
 .externalToolBuilders
+*.class
