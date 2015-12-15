@@ -19,30 +19,8 @@ public class BiggerIsGreater {
 			nextPermutation(word);
 			T--;
 		}
-	}
-
-	// sort all letters left of
-	static void quickSort(char[] word, int lo, int hi) {
-		if (lo >= hi) {
-			return;
-		}
-
-		int p = partition(word, lo, hi);
-		quickSort(word, lo, p - 1);
-		quickSort(word, p + 1, hi);
-	}
-
-	static int partition(char[] word, int lo, int hi) {
-		int pivot = word[hi];
-		int i = lo;
-		for (int j = lo; j < hi; j++) {
-			if (word[j] <= pivot) {
-				swap(word, i, j);
-				i++;
-			}
-		}
-		swap(word, hi, i);
-		return i;
+		
+		in.close();
 	}
 
 	public static void nextPermutation(char[] word) {
@@ -53,30 +31,54 @@ public class BiggerIsGreater {
 			if (word[i] < word[i + 1])
 				break;
 		}
-
+		
 		if (i == -1) {
 			System.out.println("no answer");
 			return;
 		} else {
-			int ceilIndex = findNextSmallestCell(word, word[i], i + 1,
-					word.length - 1);
-			swap(word, ceilIndex, i);
-			quickSort(word, i, word.length - 1);
+			int nextSmallestIdx = findNextSmallestCell(word, word[i], i + 1, word.length - 1);
+			
+			swap(word, nextSmallestIdx, i);
+			quickSort(word, i+1, word.length - 1);
 			print(word);
 		}
 
 	}
+	
+	// sort all letters left of
+		static void quickSort(char[] word, int lo, int hi) {
+			if (lo >= hi) {
+				return;
+			}
+
+			int p = partition(word, lo, hi);
+			quickSort(word, lo, p - 1);
+			quickSort(word, p + 1, hi);
+		}
+
+		static int partition(char[] word, int lo, int hi) {
+			int pivot = word[hi];
+			int i = lo;
+			for (int j = lo; j < hi; j++) {
+				if (word[j] <= pivot) {
+					swap(word, i, j);
+					i++;
+				}
+			}
+			swap(word, hi, i);
+			return i;
+		}
 
 	// find index of smallest char but greater than 'first' withing lo-hi
 	static int findNextSmallestCell(char[] word, char first, int lo, int hi) {
 
 		int cellIndex = lo;
-		for (int i = lo + 1; i <= hi; i++) {
+
+		for (int i = lo; i <= hi; i++) {
 			if (first < word[i] && word[i] < word[cellIndex]) {
 				cellIndex = i;
 			}
 		}
-
 		return cellIndex;
 	}
 
