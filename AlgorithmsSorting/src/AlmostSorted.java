@@ -51,12 +51,19 @@ public class AlmostSorted {
 	}
 
 	public static boolean reverseNCheck(int[] arr, int start, int end) {
-		
+
 	}
-	
-	public static boolean swapNCheck(int[] arr, int i, int j)
+
+	public static boolean swapNCheck(int[] arr, int i, int j) {
+
+	}
 
 	public static boolean check(int[] arr) {
-		return false;
+		for (int i = 1; i < arr.length; i++) {
+			if (arr[i - 1] > arr[i]) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
