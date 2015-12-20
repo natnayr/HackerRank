@@ -23,6 +23,7 @@ public class AlmostSorted {
 		int dip = 0;
 		int up = 0;
 
+		
 		// run through 1 to N-2, leave first and last
 		for (int i = 1; i < arr.length - 1; i++) {
 			if (arr[i - 1] < arr[i] && arr[i] > arr[i + 1]) {
@@ -33,30 +34,89 @@ public class AlmostSorted {
 				dipList.add(i);
 			}
 		}
+		
+		
+		 if(up == 2 && dip == 2) {
+			
+			if(swapNCheck(arr, upList.get(0), dipList.get(1))){
+				System.out.println("yes");
+				System.out.println("swap " + upList.get(0) + " " + dipList.get(1));
+				System.exit(0);
+			} 
+		 
+		 }else if (up == 1 && dip == 1) {
+				
+			 	int first = upList.get(0), second = dipList.get(0);
+				
+			 	
+			 	
+				if(reverseNCheck(arr, first, second)){
+					if(Math.abs(first - second) == 1){
+						if(!swapNCheck(arr, first, second)){
+							System.out.println("no");
+							System.exit(0);
+						}else{
+							System.out.println("yes");
+							System.out.println("swap " + first + " "
+								+ second);
+							System.exit(0);
+						}
+				 	}
+					System.out.println("yes");
+					System.out.println("reverse " + first + " "
+						+ second);
+					System.exit(0);
+				}
 
-		System.out.println("up: " + up);
-		System.out.println("dip: " + dip);
-
-		// reverse first
-		if (up == 1 && dip == 1) {
-			System.out.println("yes");
-			System.out.println("reverse " + upList.get(0) + " "
-					+ dipList.get(0));
-		} else if (up == 2 && dip == 2) {
-			System.out.println("yes");
-			System.out.println("swap " + upList.get(0) + " " + dipList.get(1));
-		} else {
-			System.out.println("no");
 		}
-
+		
+		System.out.println("no");
 	}
 
 	public static boolean reverseNCheck(int[] arr, int start, int end) {
-
+		
+		//invariance
+		if(start>end){
+			return false;
+		}
+		
+		for(int i=1; i<arr.length; i++){
+			
+			if(arr[i-1] > arr[i]){
+				return false;
+			}
+			
+			if(i >= start && i <= end){
+				for(int j=end; j>start; j--){
+					if(arr[j-1] < arr[j]){
+						return false;
+					}
+				}
+				
+				//reset i to end
+				i = end;
+			}
+		}
+		return true;
 	}
 
-	public static boolean swapNCheck(int[] arr, int i, int j) {
-
+	public static boolean swapNCheck(int[] arr, int left, int right) {
+		//invariance
+		if(left>right){
+			return false;
+		}
+		
+		int cur = arr[left];
+		arr[left] = arr[right];
+		arr[right] = cur;
+		
+		for(int i=1; i<arr.length; i++){
+			if(arr[i-1] > arr[i]){
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	public static boolean check(int[] arr) {
