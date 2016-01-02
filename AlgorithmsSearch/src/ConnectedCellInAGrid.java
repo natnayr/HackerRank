@@ -26,31 +26,70 @@ public class ConnectedCellInAGrid {
 
 		int maxCount = 0;
 		LinkedList<Pair> pairList = new LinkedList<Pair>();
+		
 		for (int i = 0; i < M; i++) {
 			for (int j = 0; j < N; j++) {
-
+				
 				if (searchedMap[i][j] == false && cell[i][j] == 1) {
 					int count = 0;
 					pairList.add(new Pair(i, j));
-
+					
 					while (pairList.size() > 0) {
-						Pair cur = pairList.pop();
+						Pair cur = pairList.removeFirst();
+						
 						int x = cur.x;
 						int y = cur.y;
-						if(){
 						
-							searchedMap[x][y] = true;
-							count++;
-						}
-						if (cell[x + 1][y] == 1)
-							pairList.add(new Pair(x + 1, y));
-						if (cell[x - 1][y] == 1)
+						cell[x][y] = 0;
+						count++;
+						
+						//left
+						if (x > 0 && cell[x - 1][y] == 1){
 							pairList.add(new Pair(x - 1, y));
-						if (cell[x][y + 1] == 1)
-							pairList.add(new Pair(x, y + 1));
-						if (cell[x][y - 1] == 1)
+							cell[x - 1][y] = 0;
+						}
+						
+						//right
+						if (x < M-1 && cell[x + 1][y] == 1){
+							pairList.add(new Pair(x + 1, y));
+							cell[x + 1][y] = 0;
+						}
+						
+						//up
+						if (y > 0 && cell[x][y - 1] == 1){
 							pairList.add(new Pair(x, y - 1));
-
+							cell[x][y - 1] = 0;
+						}
+						
+						//down
+						if (y < N-1 && cell[x][y + 1] == 1){
+							pairList.add(new Pair(x, y + 1));
+							cell[x][y + 1] = 0;
+						}
+						
+						//top left
+						if (x > 0 && y > 0 && cell[x - 1][y - 1] == 1){
+							pairList.add(new Pair(x - 1, y - 1));
+							cell[x - 1][y - 1] = 0;
+						}
+						
+						//top right
+						if (x < M-1 && y > 0 && cell[x + 1][y - 1] == 1){
+							pairList.add(new Pair(x + 1, y - 1));
+							cell[x + 1][y - 1] = 0;
+						}
+						
+						//btm left
+						if (x > 0 && y < N-1 && cell[x - 1][y + 1] == 1){
+							pairList.add(new Pair(x - 1, y + 1));
+							cell[x - 1][y + 1] = 0;
+						}
+						
+						//btm right
+						if (x < M-1  && y < N-1 && cell[x + 1][y + 1] == 1){
+							pairList.add(new Pair(x + 1, y + 1));
+							cell[x + 1][y + 1] = 0;
+						}
 					}
 
 					if (maxCount < count)
@@ -60,6 +99,7 @@ public class ConnectedCellInAGrid {
 		}
 
 		System.out.println(maxCount);
+		in.close();
 	}
 }
 
