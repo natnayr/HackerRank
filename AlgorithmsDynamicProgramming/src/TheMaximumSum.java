@@ -25,6 +25,7 @@ public class TheMaximumSum {
 	}
 
 	public static long maxSubArray(long[] arr) {
+		boolean noChange = true;
 		long curSum = 0;
 		long bestSum = 0;
 
@@ -38,6 +39,17 @@ public class TheMaximumSum {
 
 			if (curSum > bestSum) {
 				bestSum = curSum;
+				noChange = false;
+			}
+		}
+
+		// just pick the largest single element, even if negative
+		if (bestSum == 0 && noChange) {
+			bestSum = arr[0];
+			for (int i = 0; i < arr.length; i++) {
+				if (bestSum < arr[i]) {
+					bestSum = arr[i];
+				}
 			}
 		}
 
