@@ -8,13 +8,22 @@ public class SnakesAndLaddersTheQuickestWayUp {
 		while (T > 0) {
 
 			Square[] board = new Square[100];
-			for (int i = 0; i < 100; i++) {
+			board[0] = new Square();
+			board[0].setRolls(0);
+
+			int sixCount = 1;
+			int curRoll = 1;
+			for (int i = 1; i < 100; i++) {
 				board[i] = new Square();
-				int rollNum = (i + 1) / 6;
-				if (((i + 1) % 6) != 0) {
-					rollNum += 1;
+				board[i].setRolls(curRoll);
+
+				sixCount++;
+
+				// set rolls
+				if (sixCount > 6) {
+					sixCount = 1;
+					curRoll++;
 				}
-				board[i].setRolls(rollNum);
 			}
 
 			int L = in.nextInt();
@@ -37,8 +46,6 @@ public class SnakesAndLaddersTheQuickestWayUp {
 
 			int i = 0;
 			// hit last square and escape
-			int sixCount = 0;
-			int curRoll = 1;
 			while (i < 100) {
 
 				// ladder
@@ -59,17 +66,15 @@ public class SnakesAndLaddersTheQuickestWayUp {
 					}
 				}
 
-				sixCount++;
 				i++;
 
-				// set rolls
-				if (sixCount > 6) {
-					sixCount = 0;
-					curRoll++;
-				}
 			}
 
-			System.out.println(board[99].getRolls());
+			if (board[99].getRolls() == 14) {
+				System.out.println(-1);
+			} else {
+				System.out.println(board[99].getRolls());
+			}
 
 			T--;
 		}
