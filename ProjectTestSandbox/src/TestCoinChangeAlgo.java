@@ -22,7 +22,7 @@ public class TestCoinChangeAlgo {
 	public static long changeCount(int[] a, int sum) {
 		int l = a.length;
 
-		int[][] sack = new int[l][sum + 1];
+		long[][] sack = new long[l][sum + 1];
 
 		for (int i = 0; i < l; i++) {
 			for (int j = 1; j <= sum; j++) {
@@ -41,7 +41,8 @@ public class TestCoinChangeAlgo {
 
 			}
 		}
-		int ret = 0;
+
+		long ret = 0;
 		for (int i = 0; i < l; i++) {
 			ret += sack[i][sum];
 		}
