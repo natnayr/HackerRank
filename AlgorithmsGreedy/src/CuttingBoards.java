@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -41,7 +42,7 @@ public class CuttingBoards {
 
 			int numXPlates = 1;
 			int numYPlates = 1;
-			long totalCost = 0;
+			BigInteger totalCost = BigInteger.ZERO;
 
 			int idx = 0;
 			int idy = 0;
@@ -49,29 +50,29 @@ public class CuttingBoards {
 			while ((idx != arrX.length) || (idy != arrY.length)) {
 
 				if (idx != arrX.length && idy == arrY.length) {
-					totalCost += arrX[idx] * numYPlates;
+					totalCost = totalCost.add(BigInteger.valueOf(arrX[idx] * numYPlates));
 					numXPlates++;
 					idx++;
 				} else if (idy != arrY.length && idx == arrX.length) {
-					totalCost += arrY[idy] * numXPlates;
+					totalCost = totalCost.add(BigInteger.valueOf(arrY[idy] * numXPlates));
 					numYPlates++;
 					idy++;
 				} else if (idy != arrY.length && idx != arrX.length) {
 					if (arrX[idx] > arrY[idy]) {
-						totalCost += arrX[idx] * numYPlates;
+						totalCost = totalCost.add(BigInteger.valueOf(arrX[idx] * numYPlates));
 						numXPlates++;
 						idx++;
 					} else if (arrX[idx] < arrY[idy]) {
-						totalCost += arrY[idy] * numXPlates;
+						totalCost = totalCost.add(BigInteger.valueOf(arrY[idy] * numXPlates));
 						numYPlates++;
 						idy++;
 					} else {
 						if ((arrX[idx] * numYPlates) < (arrY[idy] * numXPlates)) {
-							totalCost += arrX[idx] * numYPlates;
+							totalCost = totalCost.add(BigInteger.valueOf(arrX[idx] * numYPlates));
 							numXPlates++;
 							idx++;
 						} else {
-							totalCost += arrY[idy] * numXPlates;
+							totalCost = totalCost.add(BigInteger.valueOf(arrY[idy] * numXPlates));
 							numYPlates++;
 							idy++;
 						}
@@ -80,8 +81,9 @@ public class CuttingBoards {
 
 			}
 
-			System.out.println((long) (totalCost % (Math.pow(10, 9) + 7)));
-
+			double pow = Math.pow(10, 9) + 7;
+			totalCost = totalCost.mod(BigInteger.valueOf((long) pow));
+			System.out.println(totalCost.toString());
 			T--;
 		}
 
