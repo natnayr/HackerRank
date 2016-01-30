@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class MrKMarsh {
@@ -55,69 +56,29 @@ public class MrKMarsh {
 			System.out.println();
 		}
 
-		// int topIdx = 0;
-		// int leftIdx = 0;
-		// int rightIdx = N - 1;
-		// int btmIdx = M - 1;
-		//
-		// boolean foundRect = false;
+		int max_par = -1;
 
-		// while (foundRect == false && topIdx < btmIdx && leftIdx < rightIdx) {
-		// boolean topClear = true, leftClear = true, rightClear = true,
-		// btmClear = true;
-		//
-		// // topleft to topright
-		// for (int i = leftIdx; i <= rightIdx; i++) {
-		// if (map[topIdx][i] == true) {
-		// topIdx++;
-		// topClear = false;
-		// break;
-		// }
-		// }
-		//
-		// // btmleft to btmright
-		// for (int i = leftIdx; i <= rightIdx; i++) {
-		// if (map[btmIdx][i] == true) {
-		// btmIdx--;
-		// btmClear = false;
-		// break;
-		// }
-		// }
-		//
-		// // topLeft to btmRight
-		// for (int i = topIdx; i <= btmIdx; i++) {
-		// if (map[i][leftIdx] == true) {
-		// leftIdx++;
-		// leftClear = false;
-		// break;
-		// }
-		// }
-		//
-		// // topRight to btmRight
-		// for (int i = topIdx; i <= btmIdx; i++) {
-		// if (map[i][rightIdx] == true) {
-		// rightIdx--;
-		// rightClear = false;
-		// break;
-		// }
-		// }
-		//
-		// if (topClear == true && leftClear == true && rightClear == true &&
-		// btmClear == true) {
-		// foundRect = true;
-		// }
-		// }
+		for (int r1 = 0; r1 < N; r1++) {
+			for (int r2 = r1 + 1; r2 < N; r2++) {
+				LinkedList<Integer> v = new LinkedList<Integer>();
+				int rDiff = r2 - r1;
+				for (int j = 0; j < M; j++) {
+					if (upLand[r2][j] >= rDiff) {
+						v.push(j);
+					}
+				}
+				int l = 0, r;
+				for (r = 0; r < v.size(); r++) {
+					int minLeft = Math.min(leftLand[r1][v.get(r)], leftLand[r2][v.get(r)]);
+					while (v.get(l) < minLeft)
+						l++;
+					if (v.get(r) > v.get(l))
+						max_par = Math.max(max_par, 2 * (rDiff) + 2 * (v.get(r) - v.get(l)));
+				}
+			}
+		}
 
-		// System.out.println(topIdx + " " + btmIdx + " " + leftIdx + " " +
-		// rightIdx);
-		//
-		// if (foundRect == false) {
-		// System.out.println("impossible");
-		// } else {
-		// int totalSize = 2 * (btmIdx - topIdx) + 2 * (rightIdx - leftIdx);
-		// System.out.println(totalSize);
-		// }
-
+		System.out.println(max_par);
 		in.close();
 	}
 
